@@ -59,7 +59,7 @@ export const render = ({ output }) => {
         const actionUrl = `${BASE_URL}${year}-${month}-${zeroPad(day)}`
 
         return (
-          <Link today={isToday} weekend={isWeekend}>{day}</Link>
+          <Link today={isToday} weekend={isWeekend} href={actionUrl}>{day}</Link>
         )
       })}
     </div>
