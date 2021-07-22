@@ -1,6 +1,5 @@
 import { css, styled } from "uebersicht"
-
-const BASE_URL = "https://gogoapps.atlassian.net/plugins/servlet/ac/io.tempo.jira/tempo-app#!/my-work/week?type=LIST&date=";
+import config from "./config.json";
 
 export const command = `cal $(date +"%m %Y") | awk 'NF {DAYS = $NF}; END {print DAYS}'`;
 
@@ -56,10 +55,10 @@ export const render = ({ output }) => {
         const dayOfWeek = date.getDay()
         const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
         const isToday = day === today;
-        const actionUrl = `${BASE_URL}${year}-${month}-${zeroPad(day)}`
+        const actionUrl = `${config.baseCalendarUrl}${year}-${month}-${zeroPad(day)}`
 
         return (
-          <Link today={isToday} weekend={isWeekend} href={actionUrl}>{day}</Link>
+          <Link key={day} today={isToday} weekend={isWeekend} href={actionUrl}>{day}</Link>
         )
       })}
     </div>

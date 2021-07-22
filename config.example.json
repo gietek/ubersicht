@@ -1,0 +1,4 @@
+{
+  "baseCalendarUrl": "YOUR-URL-HERE?date=",
+  "weatherUrl": "https://api.openweathermap.org/data/2.5/weather?q=YOUR-CITY&units=metric&lang=pl&appid=YOUR-KEY"
+}
